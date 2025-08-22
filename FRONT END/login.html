@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Risemock</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            position: relative;
+        }
+
+        h2 {
+            text-align: center;
+            color: #4f46e5;
+            margin-bottom: 1rem;
+            transition: opacity 0.5s ease;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 13px;
+        }
+
+        .checkbox-group input {
+            margin-right: 8px;
+        }
+
+        button {
+            background: #4f46e5;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #4338ca;
+        }
+
+        .message {
+            margin-top: 10px;
+            font-size: 14px;
+            color: red;
+            text-align: center;
+        }
+
+        .small-text {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 13px;
+        }
+
+        .small-text a {
+            color: #4f46e5;
+            text-decoration: none;
+        }
+
+        svg {
+            position: absolute;
+            top: -60px;
+            left: -60px;
+            width: 120px;
+            opacity: 0.2;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 id="headline">Hello there</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required />
+            <input type="password" id="password" placeholder="Password" required />
+            <div class="checkbox-group">
+                <input type="checkbox" id="rememberMe" />
+                <label for="rememberMe">Remember me</label>
+            </div>
+            <button type="submit">Login</button>
+            <div class="message" id="message"></div>
+        </form>
+        <div class="small-text">
+            Don’t have an account? <a href="signup.html">Sign up here</a>
+        </div>
+        <svg viewBox="0 0 512 512" fill="#4f46e5">
+            <path
+                d="M256 0C114.836 0 0 114.836 0 256s114.836 256 256 256 256-114.836 256-256S397.164 0 256 0zm0 470.857C132.192 470.857 41.143 379.808 41.143 256S132.192 41.143 256 41.143 470.857 132.192 470.857 256 379.808 470.857 256 470.857z" />
+        </svg>
+    </div>
+
+    <script>
+        // Animated heading text change
+        const headline = document.getElementById("headline");
+        setTimeout(() => {
+            headline.textContent = "Welcome back";
+        }, 5000);
+
+        const form = document.getElementById("loginForm");
+        const message = document.getElementById("message");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const rememberMe = document.getElementById("rememberMe").checked;
+
+            // Basic mock login validation
+            if (username && password) {
+                if (rememberMe) {
+                    localStorage.setItem("rememberedUser", username);
+                } else {
+                    localStorage.removeItem("rememberedUser");
+                }
+                message.textContent = "Login successful!";
+                message.style.color = "green";
+                form.reset();
+            } else {
+                message.textContent = "Please enter your username and password.";
+                message.style.color = "red";
+            }
+        });
+
+        // Load remembered user if exists
+        window.onload = () => {
+            const rememberedUser = localStorage.getItem("rememberedUser");
+            if (rememberedUser) {
+                document.getElementById("username").value = rememberedUser;
+                document.getElementById("rememberMe").checked = true;
+            }
+        };
+    </script>
+
+    <!--BACKEND THING-->
+
+   <script>
+    document.getElementById('loginForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const rememberMe = document.getElementById('rememberMe').checked;
+
+        const response = await fetch('http://localhost:5000/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password })
+        });
+
+        const data = await response.json();
+        const messageBox = document.getElementById('message');
+
+        if (response.ok) {
+            messageBox.textContent = 'Login successful! Redirecting...';
+            messageBox.style.color = 'green';
+
+            // Save token to localStorage or sessionStorage
+            if (rememberMe) {
+                localStorage.setItem('token', data.token);
+            } else {
+                sessionStorage.setItem('token', data.token);
+            }
+
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 1500);
+        } else {
+            messageBox.textContent = data.message || 'Login failed';
+            messageBox.style.color = 'red';
+        }
+    });
+</script>
+
+</body>
+
+</html>
