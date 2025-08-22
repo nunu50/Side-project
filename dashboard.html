@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RiseMock Dashboard</title>
+    <link rel="icon" type="image/png" href="icons.png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background-color: rgba(118, 40, 252, 0.897);
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 1.4rem;
+        }
+
+        .hamburger {
+            cursor: pointer;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            border-radius: 2px;
+        }
+
+        /* Layout */
+        .container {
+            display: flex;
+        }
+
+        /* Sidebar */
+        nav {
+            background-color: rgba(124, 58, 237, 0.4);
+            color: white;
+            width: 200px;
+            min-height: 100vh;
+            padding: 1rem;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            padding: 0.8rem 0;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(124, 58, 237, 0.4);
+            transition: background 0.2s;
+        }
+
+        nav ul li:hover {
+            background-color: rgb(178, 137, 248);
+        }
+
+        nav.hidden {
+            transform: translateX(-100%);
+            position: absolute;
+            left: 0;
+            top: 60px;
+            background-color: #354f52;
+            height: 100vh;
+            width: 200px;
+            z-index: 999;
+        }
+
+        /* Main Section */
+        main {
+            flex-grow: 1;
+            padding: 2rem;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .subject-box {
+            background-color: rgba(124, 58, 237, 0.4);
+            padding: 1rem;
+            text-align: center;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .subject-box:hover {
+            background-color: rgba(124, 58, 237, 0.6);
+        }
+
+        /* Profile */
+        .profile-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .profile-pic {
+            width: 100px;
+            border-radius: 50%;
+            border: 3px solid #354f52;
+        }
+
+        .profile-details p {
+            margin: 0.3rem 0;
+        }
+
+        /* Responsive Layout */
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                transform: translateX(-100%);
+            }
+
+            nav.hidden {
+                transform: translateX(-100%);
+            }
+
+            nav:not(.hidden) {
+                transform: translateX(0);
+            }
+
+            .container {
+                flex-direction: column;
+            }
+        }
+
+        /* Sidebar styling */
+        #sidebar {
+            width: 200px;
+            background: linear-gradient(90deg, #4f46e5, #7c3aed);
+            color: white;
+            padding: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        /* Initially hidden (mobile) */
+        #sidebar.hidden {
+            transform: translateX(-220px);
+            position: absolute;
+            top: 60px;
+            left: 0;
+            height: 100vh;
+            z-index: 100;
+        }
+
+        /* Hamburger always visible, styled better */
+        .hamburger {
+            cursor: pointer;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            border-radius: 2px;
+        }
+
+        /* Responsive adjustments */
+        @media (min-width: 768px) {
+            #sidebar {
+                transform: translateX(0);
+                position: relative;
+            }
+
+            #sidebar.hidden {
+                transform: translateX(-220px);
+                position: relative;
+            }
+        }
+
+        /* Profile Card with animated SVG background */
+        .profile-card {
+            position: relative;
+            background: #fff;
+            border-radius: 15px;
+            max-width: 400px;
+            width: 90%;
+            min-height: 550px;
+            margin: 20px auto;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 25px;
+            transition: 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* The SVG background container */
+        .profile-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.svgrepo.com/show/43341/wave.svg') no-repeat center center;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 0;
+            pointer-events: none;
+            animation: waveMove 10s linear infinite;
+        }
+
+        @keyframes waveMove {
+            0% {
+                background-position-x: 0;
+            }
+
+            100% {
+                background-position-x: 1000px;
+            }
+        }
+
+        .profile-pic-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-pic {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 4px solid #4f46e5;
+            object-fit: cover;
+            margin-bottom: 15px;
+            transition: 0.3s ease;
+            z-index: 1;
+            position: relative;
+        }
+
+        .profile-card h2,
+        .profile-card h4 {
+            margin: 8px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        #editBtn,
+        #saveBtn,
+        #cancelBtn {
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #4f46e5;
+            color: white;
+            transition: background 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        #editBtn:hover,
+        #saveBtn:hover {
+            background: #3730a3;
+        }
+
+        #cancelBtn {
+            background: #e11d48;
+        }
+
+        #cancelBtn:hover {
+            background: #9f1239;
+        }
+
+        #editForm input,
+        #editForm select {
+            display: block;
+            width: 90%;
+            margin: 8px auto;
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 600px) {
+            .profile-card {
+                max-width: 95%;
+                padding: 20px;
+            }
+
+            .profile-pic {
+                width: 110px;
+                height: 110px;
+            }
+        }
+        @media (max-width: 768px) {
+  /* Make profile card full width with no horizontal margin */
+  .profile-card {
+    max-width: 100% !important;
+    margin: 20px 10px !important;
+    box-sizing: border-box;
+  }
+
+  /* Ensure main content has padding to avoid sidebar overlap */
+  main {
+    padding-left: 0 !important; /* remove left padding to not push content */
+  }
+
+  /* Sidebar overlay effect */
+  #sidebar {
+    z-index: 2000; /* higher than profile card */
+    background-color: #354f52; /* semi-transparent so overlay effect */
+  }
+}
+/* Notifications style*/
+.notification {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  max-width: 100%;
+}
+
+.notification-item {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+  border-bottom: 1px solid #eee;
+  word-wrap: break-word;
+}
+
+.notification-title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.notification-time {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+@media (min-width: 768px) {
+  .notification-item {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .notification-title {
+    font-size: 1.1rem;
+  }
+}
+/* SETTINGS STYLE*/
+.settings-group {
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+  }
+
+  .settings-group h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+
+  button {
+    display: block;
+    margin: 0.3rem 0;
+    padding: 0.5rem;
+    width: 100%;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  button.danger {
+    background: #dc3545;
+  }
+
+  button:hover {
+    opacity: 0.9;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.4rem;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .settings-group {
+      font-size: 0.95rem;
+    }
+
+    button {
+      font-size: 0.9rem;
+    }
+  }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <h1>RiseMock</h1>
+    </header>
+
+    <div class="container">
+        <nav id="sidebar" class="hidden">
+            <ul>
+              <!--  <li onclick="showSection('profile')">Profile</li> -->
+                <li onclick="showSection('subjects')">Subjects</li>
+            <!--    <li onclick="showSection('notifications')">Notifications</li>
+           <li onclick="showSection('donate')">Donate</li>
+                <li onclick="showSection('performance')">Performance</li> -->
+                <li onclick="showSection('settings')">Settings</li>
+            </ul>
+        </nav>
+
+        <main>
+
+            <!-- Profile Section 
+            <div id="profile" class="section active">
+                <div class="profile-card">
+                    <div class="profile-pic-container">
+                        <img src="Profile.png" alt="Profile Picture" class="profile-pic" />
+                    </div>
+                    <h2 id="displayName">Nuh Sam</h2>
+                    <h4><strong>Username:</strong> @nuhsam</h4>
+                    <h4><strong>Email:</strong> example@risemock.com</h4>
+                    <h4><strong>Grade:</strong> <span id="displayGrade">12</span></h4>
+                    <h4><strong>Joined On:</strong> 08 August 2025</h4>
+
+                    <button id="editBtn">✏️ Edit</button>
+
+                    <div id="editForm" style="display: none;">
+                        <input type="text" id="nameInput" placeholder="Enter name" />
+                        <select id="editGrade">
+                            <option value="">-- Select Grade --</option>
+                            <option value="9">Grade 9</option>
+                            <option value="10">Grade 10</option>
+                            <option value="11">Grade 11</option>
+                            <option value="12">Grade 12</option>
+                        </select>
+                        <button id="saveBtn">💾 Save</button>
+                        <button id="cancelBtn">❌ Cancel</button>
+                    </div>
+                </div>
+            </div>
+        -->
+<!-- SUBJECT SECTION-->
+            <section id="subjects" class="section">
+                <h3>📚 Choose a Subject</h3>
+                <div class="subjects-grid">
+                    <div class="subject-box" onclick="goToUnits('math')">Math</div>
+                    <div class="subject-box" onclick="goToUnits('english')">English</div>
+                    <div class="subject-box" onclick="goToUnits('biology')">Biology</div>
+                    <div class="subject-box" onclick="goToUnits('chemistry')">Chemistry</div>
+                    <div class="subject-box" onclick="goToUnits('physics')">Physics</div>
+                    <!--<div class="subject-box" onclick="goToUnits('history')">History</div>
+                    <div class="subject-box" onclick="goToUnits('economics')">Economics</div>
+                    <div class="subject-box" onclick="goToUnits('geography')">Geography</div>
+                -->
+                    <div class="subject-box"
+                        onclick="window.open('https://www.indiabix.com/aptitude/questions-and-answers/', '_blank')">
+                        Aptitude</div>
+                </div>
+            </section>
+<!--PERFOMRANCE SECTION-->
+            <section id="performance" class="section">
+                <h3>📊 Your Performance</h3>
+                <p>Performance analytics will be shown here.</p>
+            </section>
+<!--SETTINGS SECTION-->
+        <section id="settings" class="section">
+            <h3>⚙️ Settings</h3>
+        
+            <!-- Account Management 
+            <div class="settings-group">
+                <h4>Account Management</h4>
+                <button onclick="logout()">🚪 Log Out</button>
+                <button class="danger" onclick="deleteAccount()">🗑️ Delete Account</button>
+            </div>
+        -->
+            
+            <!-- Feedback & Support -->
+            <div class="settings-group">
+                <h4>Feedback & Support</h4>
+                <button onclick="openSupport()">💬 Contact Support</button>
+            </div>
+        </section>
+
+
+<!--DONATE SECTION-->
+            <section id="donate" class="section">
+                <h3>❤️ Support RiseMock</h3>
+                <p>Help us improve by donating.</p>
+            </section>
+<!-- NOTIFICATION SECTION -->
+<section id="notifications" class="section">
+    <h3>🔔 Notifications</h3>
+    <p>Stay updated with the latest changes.</p>
+
+    <div class="notification-list">
+        <!-- Newest notification at the top -->
+        <div class="notification-item">
+            <span class="notification-time">2025-08-10 14:35</span>
+            <p><strong>Biology:</strong> Energy Transformation questions have been added ✅</p>
+        </div>
+
+        <div class="notification-item">
+            <span class="notification-time">2025-08-10 09:00</span>
+            <p>👋 Welcome to RiseMock! Start exploring your dashboard.</p>
+        </div>
+    </div>
+</section>
+        </main>
+    </div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        const sections = document.querySelectorAll('.section');
+
+        hamburger.addEventListener('click', () => {
+            sidebar.classList.toggle('hidden');
+        });
+
+        function showSection(id) {
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            if (window.innerWidth < 768) sidebar.classList.add('hidden');
+        }
+
+        function goToUnits(subject) {
+            window.location.href = `units.html?subject=${subject}`;
+        }
+
+    /** // Initial data
+        let currentName = document.getElementById("displayName").innerText;
+        let currentGrade = document.getElementById("displayGrade").innerText;
+
+        document.getElementById("editBtn").addEventListener("click", () => {
+            // Show edit form and populate with current values
+            document.getElementById("editForm").style.display = "block";
+            document.getElementById("nameInput").value = currentName;
+            document.getElementById("editGrade").value = currentGrade;
+        });
+
+        document.getElementById("cancelBtn").addEventListener("click", () => {
+            document.getElementById("editForm").style.display = "none";
+        });
+
+        document.getElementById("saveBtn").addEventListener("click", (event) => {
+            event.preventDefault(); // Prevent page reload on button click
+
+            let newName = document.getElementById("nameInput").value.trim();
+            let newGrade = document.getElementById("editGrade").value;
+
+            if (newName) currentName = newName;
+            if (newGrade >= 9 && newGrade <= 12) currentGrade = newGrade;
+
+            document.getElementById("displayName").innerText = currentName;
+            document.getElementById("displayGrade").innerText = currentGrade;
+
+            document.getElementById("editForm").style.display = "none";
+        });*/ 
+        document.addEventListener("DOMContentLoaded", () => {
+                const params = new URLSearchParams(window.location.search);
+                const section = params.get("section");
+
+                if (section) {
+                    showSection(section);
+                } else {
+                    showSection("subjects"); // 👈 Default set to subjects
+                }
+            });
+
+
+// SETTINGS SCRIPT
+
+
+    function logout() {
+        if (confirm("Are you sure you want to log out?")) {
+            window.location.href = "login.html";
+        }
+    }
+
+    function deleteAccount() {
+        if (confirm("This action will permanently delete your account. Continue?")) {
+            alert("Account deleted! (backend needed)");
+        }
+    }
+
+    function toggleTheme() {
+        document.body.classList.toggle("dark-theme");
+    }
+
+    function toggleNotifications() {
+        alert("Notification preferences updated!");
+    }
+
+    function openSupport() {
+        alert("Support chat or email coming soon!");
+    }
+    </script>
+</body>
+
+</html>

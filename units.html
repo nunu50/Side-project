@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RiseMock Units</title>
+    <link rel="icon" type="image/png" href="icons.png">
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #2f3e46;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .units-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+        }
+
+        .unit-box {
+            background-color: #52796f;
+            color: white;
+            padding: 1.2rem;
+            border-radius: 10px;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            user-select: none;
+        }
+
+        .unit-box:hover {
+            background-color: #354f52;
+        }
+
+        .back-button {
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            cursor: pointer;
+            background-color: #354f52;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+            user-select: none;
+        }
+
+        .back-button:hover {
+            background-color: #52796f;
+        }
+        #modeModal {
+  display: none; /* hidden by default */
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+    </style>
+</head>
+
+<body>
+    <header id="subject-title">Units</header>
+    <main>
+        <div class="back-button" onclick="goBack()">← Back to Subjects</div>
+        <div id="units-list" class="units-grid"></div>
+    </main>
+
+    <script>
+        // Get subject from URL query param
+        const urlParams = new URLSearchParams(window.location.search);
+        const subject = urlParams.get('subject');
+
+        const subjectTitle = document.getElementById('subject-title');
+        subjectTitle.textContent = subject
+            ? subject.charAt(0).toUpperCase() + subject.slice(1) + ' Units'
+            : 'Units';
+
+        // Units data for each subject
+        const unitsData = {
+            math: ["Algebra", "Geometry", "Trigonometry", "Calculus", "Statistics"],
+            english: ["Grammar", "Comprehension", "Essay Writing", "Vocabulary", "Literature"],
+            biology: ["Cell Biology", "Microorganisms", "Nervous & endocrine system", "Digestion Sys.", "Respiration Sys.", "Circulation Sys.", "Evolution", "Biotechnology", "Reproductive System", "Climate Change", "Energy Transformation","Enzyme"],
+            chemistry: ["Atoms", "Periodic Table", "Industrial Chemistry", "Organic Chemistry", "Acid-Base Equilibrium","Atomic Structure and the Periodic Table", "Chemical Bonding"],
+            physics: ["Motion", "Energy", "Electricity", "Waves", "Modern Physics"],
+            history: ["Ancient Civilizations", "Medieval Times", "Modern History", "World Wars", "Ethiopian History"],
+            economics: ["Microeconomics", "Macroeconomics", "Development", "Trade", "Market Structures"],
+            geography: ["Maps & Tools", "Physical Geography", "Human Geography", "Climate", "Resources"]
+        };
+
+        const unitsList = unitsData[subject] || [];
+
+        const container = document.getElementById('units-list');
+
+        if (unitsList.length === 0) {
+            container.innerHTML = `<p>No units found for "${subject}".</p>`;
+        } else {
+         unitsList.forEach(unit => {
+                const div = document.createElement('div');
+                div.className = 'unit-box';
+                div.textContent = unit;
+                div.onclick = () => {
+                    showModeDialog(subject, unit);
+                };
+                container.appendChild(div);
+            });
+
+
+        }
+
+       function goBack() {
+            window.location.href = 'dashboard.html?section=subjects';
+        }
+
+    </script>
+<!-- Mode selection modal -->
+<div id="modeModal"
+    style="display: none; position:fixed; top:0; left:0; right:0; bottom:0;
+    background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:10000; font-family: 'Segoe UI', sans-serif;">
+    <div style="
+        background:#fff; 
+        padding: 25px 30px; 
+        border-radius: 15px; 
+        max-width: 340px; 
+        width: 90%; 
+        text-align: center; 
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        position: relative;
+    ">
+        <button id="modeCancel" aria-label="Close" style="
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 22px;
+            background: transparent;
+            border: none;
+            color: #e74c3c;
+            cursor: pointer;
+            font-weight: 900;
+            line-height: 1;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.2s ease;
+        ">
+            &times;
+        </button>
+
+        <h2 style="margin-bottom: 20px; font-weight: 700; color: #2f3e46;">
+            How do you want to answer questions?
+        </h2>
+        <button id="modeInstant" style="
+            padding: 12px 25px; 
+            margin: 12px; 
+            border-radius: 10px;
+            border: none;
+            background-color: #4f46e5; 
+            color: white; 
+            font-weight: 600; 
+            cursor: pointer;
+            transition: background-color 0.3s;
+        ">One-by-one with feedback</button>
+        <button id="modeBatch" style="
+            padding: 12px 25px; 
+            margin: 12px; 
+            border-radius: 10px;
+            border: none;
+            background-color: #4f46e5; 
+            color: white; 
+            font-weight: 600; 
+            cursor: pointer;
+            transition: background-color 0.3s;
+        ">All at once, submit at end</button>
+    </div>
+</div>
+
+    
+    <script>
+       const modeModal = document.getElementById('modeModal');
+        const modeInstantBtn = document.getElementById('modeInstant');
+        const modeBatchBtn = document.getElementById('modeBatch');
+        const modeCancelBtn = document.getElementById('modeCancel');
+
+        function showModeDialog(subject, unit) {
+            modeModal.style.display = 'flex';
+
+            modeInstantBtn.onclick = () => {
+                window.location.href = `questions.html?subject=${subject}&unit=${encodeURIComponent(unit)}&mode=instant`;
+            };
+
+            modeBatchBtn.onclick = () => {
+                window.location.href = `questions.html?subject=${subject}&unit=${encodeURIComponent(unit)}&mode=batch`;
+            };
+
+            modeCancelBtn.onclick = () => {
+                modeModal.style.display = 'none';
+            };
+        }
+
+    </script>
+
+</body>
+
+</html>

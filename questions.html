@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RiseMock Questions</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1 {
+            background-color: #2f3e46;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .question-box {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .question-text {
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .choice {
+            display: inline-block;
+            flex: 1 1 45%;
+            background: #e0e0e0;
+            padding: 12px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.3s ease;
+            text-align: center;
+            font-weight: 600;
+            margin: 5px 0;
+        }
+
+        .choice.selected {
+            background-color: #a0b9f7;
+            color: #1a237e;
+        }
+
+        .choice.correct {
+            background-color: #4caf50 !important;
+            color: white;
+            cursor: default;
+        }
+
+        .choice.wrong {
+            background-color: #f44336 !important;
+            color: white;
+            cursor: default;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .next-btn,
+        .submit-btn,
+        .back-btn {
+            margin-top: 15px;
+            padding: 10px 25px;
+            background-color: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .next-btn:disabled,
+        .submit-btn:disabled {
+            background-color: #999;
+            cursor: not-allowed;
+        }
+
+        .next-btn:hover,
+        .submit-btn:hover,
+        .back-btn:hover {
+            background-color: #3730a3;
+        }
+
+        .result {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .choice {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="header">Questions</h1>
+    <main id="quiz-container">
+        <!-- Questions will be injected here -->
+    </main>
+
+    <script src="questions-data.js"></script>
+<script src="questions.js"></script>
+</body>
+</html>
