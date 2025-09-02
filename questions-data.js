@@ -2327,6 +2327,462 @@ const questionsData = {
 ///////////////////////////////////CHEMISTRY/////////////////////////////////////////////////////////////////////////
   
   , chemistry: {
+      "Chemical Kinetics": [
+        {
+            "question": "Which of the following is the correct expression of the rate of reaction?",
+            "options": ["change in [NO]/change in t", "--change in [NO]/change in t", "-1/4 change in [NO]/change in t", "1/4 change in [NO]/change in t"],
+            "answer": "change in [NO]/change in t",
+            "explanation": "The rate of reaction is typically expressed as the change in concentration of a reactant or product per unit time. This reflects how quickly reactants are converted into products."
+        },
+        {
+            "question": "At some point of the reaction 3A + 2B → C + 2D, what is the rate of the reaction during this time interval?",
+            "options": ["4.5x10^-4 s^-1", "5.5x10^-5 s^-1", "5.5x10^4 s^-1", "5.5x10^5 s^-1"],
+            "answer": "5.5x10^-5 s^-1",
+            "explanation": "To find the rate, we calculate the change in concentration of reactants or products over time. The stoichiometry of the reaction tells us how the concentrations relate to the rate."
+        },
+        {
+            "question": "Which factor will influence the rate of the reaction shown below?",
+            "options": ["The number of collisions per second", "The energy of the collisions", "The geometry with which the molecules collide", "All"],
+            "answer": "All",
+            "explanation": "The rate of reaction is influenced by multiple factors: the frequency of molecular collisions, the energy of those collisions, and the orientation of the colliding molecules, all of which are critical for effective reactions."
+        },
+        {
+            "question": "What is the half-life of the irreversible first-order reaction X → Y if 60% X is converted to Y in 30 min?",
+            "options": ["22 min", "44 min", "11 min", "66 min"],
+            "answer": "22 min",
+            "explanation": "For first-order reactions, the half-life is a constant and independent of concentration. The formula for half-life can be used to determine how long it takes for half of the reactant to be consumed based on the percentage converted."
+        },
+        {
+            "question": "If the concentration of the reactant is tripled but the rate is unchanged, the reaction is:",
+            "options": ["Second order", "Zero order", "First order", "Third order"],
+            "answer": "Zero order",
+            "explanation": "In a zero-order reaction, the rate is independent of the concentration of the reactants. Thus, changing the concentration does not affect the rate."
+        },
+        {
+            "question": "The reaction NO2(g) + CO(g) → NO(g) + CO2(g) can be thought of as occurring in two elementary steps?",
+            "options": ["Yes", "No", "Partially", "Not enough information"],
+            "answer": "Yes",
+            "explanation": "Complex reactions can often be broken down into elementary steps. Each step represents an individual reaction with its own rate, and together they describe the overall reaction mechanism."
+        },
+        {
+            "question": "In the above question, the intermediate species in this reaction is:",
+            "options": ["NO", "NO2", "NO3", "CO"],
+            "answer": "NO3",
+            "explanation": "An intermediate is a species that is produced in one step of a reaction and consumed in another. In this case, NO3 forms and is used up in subsequent steps."
+        },
+        {
+            "question": "According to collision theory, which results in a reaction to form the desired product?",
+            "options": ["Elastic collision", "Effective collision", "Ineffective collision", "Inelastic collision"],
+            "answer": "Effective collision",
+            "explanation": "Collision theory states that for a reaction to occur, particles must collide with sufficient energy and the correct orientation. Only effective collisions lead to product formation."
+        },
+        {
+            "question": "The activation energy of the reaction is:",
+            "options": ["The energy needed to initiate a reaction", "The energy released during a reaction", "The energy of products", "The energy of reactants"],
+            "answer": "The energy needed to initiate a reaction",
+            "explanation": "Activation energy is the minimum energy required for reactants to undergo a chemical reaction. It is a crucial factor in determining reaction rates."
+        },
+        {
+            "question": "The factor that caused this change in rate is the:",
+            "options": ["Nature of reactants", "Concentration", "Temperature", "Presence of a catalyst"],
+            "answer": "Presence of a catalyst",
+            "explanation": "Catalysts lower the activation energy required for a reaction, increasing the reaction rate without being consumed in the process."
+        },
+        {
+            "question": "For a reaction 2A + B → C, with the rate equation: Rate = k[A]^2[B]",
+            "options": ["The order with respect to A is 1 and the order overall is 1", "The order with respect to A is 2 and the order overall is 2", "The order with respect to A is 2 and the order overall is 3", "The order with respect to B is 2 and the order overall is 2"],
+            "answer": "The order with respect to A is 2 and the order overall is 3",
+            "explanation": "The rate law indicates how the rate depends on the concentrations of reactants. Here, the reaction is second order in A and first order in B, leading to an overall order of three."
+        },
+        {
+            "question": "The fraction of an initial amount of dimethylether remains after 4710 seconds?",
+            "options": ["1/3", "1/6", "1/8", "1/16"],
+            "answer": "1/16",
+            "explanation": "For first-order reactions, the amount remaining can be calculated using the half-life formula. After multiple half-lives, the remaining fraction decreases significantly."
+        },
+        {
+            "question": "If reaction A has an activation energy of 250 kJ and reaction B has an activation energy of 100 kJ. Which of the following statements must be correct?",
+            "options": ["If reaction A is exothermic and reaction B is endothermic then reaction A is favored kinetically", "At the same temperature the rate of reaction B is greater than the rate of reaction A", "The energy of reaction A must be greater than the energy of reaction B", "The energy of reaction B must be greater than the energy of reaction A"],
+            "answer": "At the same temperature the rate of reaction B is greater than the rate of reaction A",
+            "explanation": "Lower activation energy typically results in a faster reaction rate at a given temperature, so reaction B, with the lower activation energy, will react faster."
+        },
+        {
+            "question": "The decomposition of dimethylether at 504°C is first order with a half-life of 1570 seconds. What fraction of an initial amount of dimethylether remains after 4710 seconds?",
+            "options": ["1/3", "1/6", "1/8", "1/16"],
+            "answer": "1/16",
+            "explanation": "For first-order reactions, the fraction remaining can be calculated using the formula involving half-lives. After multiple half-lives, the remaining fraction decreases significantly."
+        },
+        {
+            "question": "If the concentration of A is doubled and the concentration of B is halved, the rate of the reaction would….by a factor of…",
+            "options": ["increase 2", "decrease .2", "increase 4", "decrease 4"],
+            "answer": "decrease .2",
+            "explanation": "The rate of reaction is influenced by the order of the reactants. Here, the change in concentrations affects the rate in a predictable manner based on the rate law."
+        },
+        {
+            "question": "If the reaction is zero order in A, tripling the concentration of A will cause the reaction rate to:",
+            "options": ["Increase by a factor of 27", "Remain constant", "Increase by a factor of 3", "Increase by a factor of 9"],
+            "answer": "Remain constant",
+            "explanation": "In a zero-order reaction, the rate is independent of the concentration of the reactant. Therefore, changing the concentration does not affect the rate."
+        },
+        {
+            "question": "The appropriate unit for a first-order rate constant is?",
+            "options": ["1/S", "1/M2S", "1/MS", "M/S"],
+            "answer": "1/S",
+            "explanation": "The units of the rate constant depend on the order of the reaction. For first-order reactions, the rate constant has units of inverse seconds."
+        },
+        {
+            "question": "If the initial concentration of reactant A is tripled, by what factor does the rate change?",
+            "options": ["Increase by a factor of 27", "Remain constant", "Increase by a factor of 3", "Increase by a factor of 9"],
+            "answer": "Increase by a factor of 9",
+            "explanation": "For a reaction where A is squared in the rate law, tripling the concentration will increase the rate by a factor of 3 squared."
+        },
+        {
+            "question": "The number of moles and the mass of a copper sample containing 5.00 x 10^20 atoms?",
+            "options": ["3.8 x 10^-4 mol Cu and 5.2 x 10^-2 g Cu", "8.3 x 10^-4 mol Cu and 5.2 x 10^-2 g Cu", "5.2 x 10^-2 mol Cu and 8.3 x 10^-4 g Cu", "5.2 x 10^-2 mol Cu and 3.8 x 10^-4 g Cu"],
+            "answer": "5.2 x 10^-2 mol Cu and 8.3 x 10^-4 g Cu",
+            "explanation": "To find the number of moles from the number of atoms, use Avogadro's number (6.022 x 10^23 atoms/mol). The mass can then be calculated using the molar mass of copper."
+        },
+        {
+            "question": "If the concentration of A is doubled and the concentration of B is halved, the rate of the reaction would….by a factor of…",
+            "options": ["increase 2", "decrease 0.2", "increase 4", "decrease 4"],
+            "answer": "decrease 0.2",
+            "explanation": "The rate of reaction is influenced by the order of the reactants. Here, the change in concentrations affects the rate in a predictable manner based on the rate law."
+        },
+        {
+            "question": "Which of the following is not true about sodium carbonate?",
+            "options": ["It exists as a decahydrate (Na2CO3.10H2O) compound", "Is manufactured by Solvay process in industrial scale", "Has industrial and domestic uses", "None"],
+            "answer": "None",
+            "explanation": "All statements about sodium carbonate are true; it has many uses and is produced industrially."
+        },
+        {
+            "question": "Which of the following is not a raw material used in the Solvay process?",
+            "options": ["Ammonia gas", "Limestone (CaCO3) for CO2", "Brine solution (NaCl)", "None"],
+            "answer": "None",
+            "explanation": "All materials listed are used in the Solvay process for producing sodium carbonate."
+        },
+        {
+            "question": "The 'light ash' sodium carbonate is used:",
+            "options": ["As chemicals, metallurgical detergents", "For production of glass container", "Heavy chemicals manufacturing", "A and C"],
+            "answer": "A and C",
+            "explanation": "'Light ash' sodium carbonate is used in detergents and glass production."
+        },
+        {
+            "question": "Which of the following is a use of sodium bicarbonate?",
+            "options": ["Water treatment", "As an additive in food and drinks", "For blowing foams", "All"],
+            "answer": "All",
+            "explanation": "Sodium bicarbonate is versatile, used in water treatment, food, and foams."
+        },
+        {
+            "question": "Which of the following is not a raw material used for manufacturing cement?",
+            "options": ["Limestone", "Clay", "Silica sand", "None"],
+            "answer": "None",
+            "explanation": "All listed materials are essential for cement production."
+        },
+        {
+            "question": "Which of the following tanning processes is not in the preparatory stage of tanning?",
+            "options": ["Curing", "Soaking", "Flesh removal", "Crusting"],
+            "answer": "Crusting",
+            "explanation": "Crusting is part of the finishing process, not the preparatory stage."
+        },
+        {
+            "question": "The process of converting nitrogenous compounds to free nitrogen is called:",
+            "options": ["Nitrification", "Nitrogen synthesis", "Nitrogen fixation", "Denitrification"],
+            "answer": "Denitrification",
+            "explanation": "Denitrification is the process that converts nitrogen compounds into nitrogen gas."
+        },
+        {
+            "question": "Which of the following is not correctly paired with its process of production?",
+            "options": ["NH3 → Haber process", "HNO3 → Ostwald process", "H2SO4 → Contact process", "None"],
+            "answer": "None",
+            "explanation": "All pairings accurately represent their respective production processes."
+        },
+        {
+            "question": "What makes the phosphorus cycle different from the Carbon and Nitrogen Cycle?",
+            "options": ["Phosphorus cycle is very slow and found in rocks", "Phosphorus cannot be found in atmosphere in the gas state", "It is not an essential element for plants and animals", "A and B"],
+            "answer": "A and B",
+            "explanation": "The phosphorus cycle is slower and does not involve a gaseous phase."
+        },
+        {
+            "question": "Which of the following catalysts is used during the preparation of H2SO4 by Lead chamber process?",
+            "options": ["V2O5", "NO", "Pt", "Fe"],
+            "answer": "NO",
+            "explanation": "Nitric oxide (NO) is used as a catalyst in the Lead chamber process for H2SO4 production."
+        },
+        {
+            "question": "Industrial Chemistry involves the production of:",
+            "options": ["Food", "Medicine", "Materials", "All"],
+            "answer": "All",
+            "explanation": "Industrial chemistry encompasses the production of food, medicine, and various materials."
+        },
+        {
+            "question": "Which of the following is true about chemical industries?",
+            "options": ["Use naturally-available raw materials to produce the desired products.", "Use chemical reactions to transform raw materials into finished and semi-finished products.", "Use safe operation methods in their manufacturing processes.", "All"],
+            "answer": "All",
+            "explanation": "All statements accurately describe the functioning of chemical industries."
+        },
+        {
+            "question": "All are renewable natural resources except?",
+            "options": ["Water", "Soil", "Petrol", "Solar energy"],
+            "answer": "Petrol",
+            "explanation": "Petrol is a non-renewable resource; the others are renewable."
+        },
+        {
+            "question": "A compartment of industry or economy which is concerned with the production or making of goods out of raw materials by means of a system of organized labor is ___?",
+            "options": ["Manufacturing industry", "Chemical Industry", "Green industry", "None"],
+            "answer": "Manufacturing industry",
+            "explanation": "The manufacturing industry focuses on producing goods from raw materials."
+        },
+        {
+            "question": "Which of the following catalysts is used in the contact process of manufacturing H2SO4?",
+            "options": ["NO", "LiAlH4", "V2O5", "Pt"],
+            "answer": "V2O5",
+            "explanation": "Vanadium pentoxide (V2O5) is the catalyst used in the contact process for H2SO4 production."
+        },
+        {
+            "question": "Which of the following is not a function of DAP, (NH4)2HPO4(s)?",
+            "options": ["As a fertilizer, (double fertilizer)", "As fire retardant", "As a yeast nutrient in wine making and beer brewing", "None"],
+            "answer": "None",
+            "explanation": "All listed options are functions associated with DAP."
+        },
+        {
+            "question": "Chemicals used to prevent or control pests, diseases, weeds, and other plant pathogens are called:",
+            "options": ["Pesticides", "Fertilizers", "Urea", "Phospholipids"],
+            "answer": "Pesticides",
+            "explanation": "Pesticides are chemicals designed to control various agricultural pests and pathogens."
+        },
+        {
+            "question": "A chemical substance used to kill certain species of plants considered to be pests is called __.",
+            "options": ["Insecticide", "Herbicide", "Fungi", "Roach killer"],
+            "answer": "Herbicide",
+            "explanation": "Herbicides are specifically designed to kill unwanted plants."
+        },
+        {
+            "question": "Sodium hydroxide is:",
+            "options": ["Caustic soda", "Decomposes proteins at room temperatures", "It dissolves readily in water", "All"],
+            "answer": "All",
+            "explanation": "Sodium hydroxide is caustic soda, a strong base that dissolves in water and can decompose proteins."
+        },
+        {
+            "question": "Sodium hydroxide is manufactured by:",
+            "options": ["Dissolving sodium metal in water", "Dissolving Na2O in water", "Electrolysis of concentrated NaCl", "All"],
+            "answer": "Electrolysis of concentrated NaCl",
+            "explanation": "Sodium hydroxide is primarily produced through the electrolysis of sodium chloride (NaCl)."
+        },
+        {
+            "question": "Which of the following is the main component of glass?",
+            "options": ["SiO2", "CaCO3", "CCl4", "MgCO3"],
+            "answer": "SiO2",
+            "explanation": "Silicon dioxide (SiO2) is the primary component in the production of glass."
+        }, 
+          {
+            "question": "Which of the following is true about quartz glass?",
+            "options": ["It is made by melting pure silica (SiO2) at 2300°C", "Has low thermal expansion and is highly transparent", "It is of high strength", "All"],
+            "answer": "All",
+            "explanation": "Quartz glass is known for its high melting point, low thermal expansion, and strength, making it suitable for various applications."
+        },
+        {
+            "question": "Which of the following is not true about Soda-lime glass?",
+            "options": ["It is ordinary glass", "It is a mixture of sodium silicate and calcium silicate", "It is made by heating a mixture of silica sand, sodium carbonate", "None"],
+            "answer": "None",
+            "explanation": "All statements are true regarding Soda-lime glass, which is the most common type of glass."
+        },
+        {
+            "question": "Which of the following glass is commonly known by the name Pyrex?",
+            "options": ["Quartz glass", "Soda-lime glass", "Borosilicate glass", "All"],
+            "answer": "Borosilicate glass",
+            "explanation": "Pyrex is a brand name for borosilicate glass, known for its thermal resistance and chemical durability."
+        },
+        {
+            "question": "Soda-lime glass is used for making:",
+            "options": ["Window panes", "Bottles", "Dishes", "All"],
+            "answer": "All",
+            "explanation": "Soda-lime glass is widely used for windows, bottles, and dishes due to its cost-effectiveness and ease of production."
+        },
+        {
+            "question": "Which of the following glass is temperature, chemical resistant, and used for making laboratory equipment?",
+            "options": ["Borosilicate glass", "Soda-lime glass", "Quartz glass", "Flint glass"],
+            "answer": "Borosilicate glass",
+            "explanation": "Borosilicate glass is favored in laboratories for its resistance to thermal shock and chemicals."
+        },
+        {
+            "question": "Which of the following step is the first step in glass preparation?",
+            "options": ["Annealing", "Batch preparation", "Glass forming", "Inspection"],
+            "answer": "Batch preparation",
+            "explanation": "Batch preparation is the initial step in the glass-making process, where raw materials are mixed."
+        },
+        {
+            "question": "The first step in the manufacturing of ceramics is?",
+            "options": ["Moulding", "Densification", "Heating", "All"],
+            "answer": "Moulding",
+            "explanation": "Moulding is the initial step in producing ceramics, forming the desired shapes."
+        },
+        {
+            "question": "Which of the following is the major ingredient for the production of cement?",
+            "options": ["Gypsum", "Limestone", "Clay", "Calcium silicate"],
+            "answer": "Limestone",
+            "explanation": "Limestone is the primary ingredient in cement production as it provides calcium carbonate."
+        },
+        {
+            "question": "During the production of cement, the process of heating limestone (chalk), alumina (Al2O3), and silica-bearing materials such as clay to 1450°C in a kiln is called:",
+            "options": ["Calcination", "Fractionation", "Densification", "Powdering"],
+            "answer": "Calcination",
+            "explanation": "Calcination is the process of heating materials to drive off gases, forming clinker in cement."
+        },
+        {
+            "question": "In the sugar production industry, during grinding the sugar cane, what is the use of spraying hot water onto the sugarcane?",
+            "options": ["To increase the quality of the sugar produced", "To dissolve the remaining hard sugar", "To increase the purity of sugar produced", "To make its color become white"],
+            "answer": "To dissolve the remaining hard sugar",
+            "explanation": "Spraying hot water helps dissolve remaining sugars that are hard to extract during grinding."
+        },
+        {
+            "question": "During the manufacturing of sugar in the sugar industry, why is SO2 added to produced golden syrup?",
+            "options": ["To remove the color", "To lower the melting point", "Used as bleaching agent", "A and C"],
+            "answer": "A and C",
+            "explanation": "SO2 is added for both bleaching and color removal in syrup production."
+        },
+        {
+            "question": "Pulping techniques of manufacturing paper that use the Kraft process or the Sulphite Process are called:",
+            "options": ["Chemical pulp", "Mechanical pulp", "Bleaching", "Harvesting"],
+            "answer": "Chemical pulp",
+            "explanation": "Chemical pulp is produced using chemical processes that dissolve lignin, enhancing cellulose extraction."
+        },
+        {
+            "question": "Paper used for newspapers are a typical product of:",
+            "options": ["Chemical pulping", "Mechanical pulping", "Ideal pulping", "None"],
+            "answer": "Mechanical pulping",
+            "explanation": "Mechanical pulping is commonly used for producing newsprint due to its cost-effectiveness."
+        },
+        {
+            "question": "In the paper industry of chemical pulping, what is the use of adding chemicals and heating wood chips in large vessels?",
+            "options": ["To break down the lignin which binds the cellulose fibers together", "To increase the strength", "To reduce the quality of the paper", "To give color to the paper"],
+            "answer": "To break down the lignin which binds the cellulose fibers together",
+            "explanation": "Chemicals and heat are used to dissolve lignin, allowing for better extraction of cellulose for paper production."
+        }
+    ], 
+    "Chemical Equilibrum": [
+        {
+            "question": "Formation of an activated complex is explained by:",
+            "options": ["Molecular kinetic theory", "Transition-state theory", "Valence-bond theory", "Collision theory"],
+            "answer": "Transition-state theory",
+            "explanation": "The transition-state theory describes how reactants can form an activated complex before breaking apart into products, emphasizing the energy barrier that must be overcome."
+        },
+        {
+            "question": "Which of the following does not influence the reaction rate?",
+            "options": ["Nature of reactant", "Surface area of reactant", "Entropy of reactant", "Temperature of reactant"],
+            "answer": "Entropy of reactant",
+            "explanation": "While the nature of the reactant, surface area, and temperature affect the rate of reaction, entropy does not directly influence the reaction rate."
+        },
+        {
+            "question": "A correct reaction mechanism for a given reaction usually is:",
+            "options": ["The same as its balanced chemical equation", "Obvious if its heat of reaction is known", "Obvious if its reaction order is known", "Obvious if its activation energy is known"],
+            "answer": "The same as its balanced chemical equation",
+            "explanation": "A valid reaction mechanism must agree with the overall balanced equation and explain the steps occurring at the molecular level."
+        },
+        {
+            "question": "For the reaction 2H2S(g) + O2(g) → 2S(s) + 2H2O(l), which one of the following statements is absolutely true?",
+            "options": ["The reaction is first order with respect to H2S and second order with respect to O2", "The reaction is fourth order overall", "The rate law is: rate = k[H2S]2[O2]", "The rate law is: rate = k[H2S][O2]"],
+            "answer": "The rate law is: rate = k[H2S][O2]",
+            "explanation": "The rate law accurately reflects the stoichiometry of the reactants, indicating how the rate depends on their concentrations."
+        },
+        {
+            "question": "Which of these correctly describes energy changes due to reactions in solution?",
+            "options": ["Endothermic - temperature increases; Exothermic - energy is transferred to the surroundings", "Endothermic - temperature decreases; Exothermic - energy is transferred from the surroundings", "Endothermic - energy is transferred to the surroundings; Exothermic - temperature decreases", "Endothermic - energy is transferred from the surroundings; Exothermic - temperature increases"],
+            "answer": "Endothermic - energy is transferred from the surroundings; Exothermic - temperature increases",
+            "explanation": "Endothermic reactions absorb heat, leading to a temperature drop, while exothermic reactions release heat, causing the temperature to rise."
+        },
+        {
+            "question": "Suppose the activation energy of a certain reaction is 250 kJ/mol. If the rate constant at T1 = 300 K is k1 and the rate constant at T2 = 320 K is k2, then the reaction is __ times faster at 320 K than at 300 K.",
+            "options": ["3 x 10^-29", "0.067", "15.0", "525"],
+            "answer": "525",
+            "explanation": "The reaction rate can be calculated using the Arrhenius equation, which shows how temperature affects the rate constant and, consequently, the reaction rate."
+        },
+        {
+            "question": "When the concentration of reactant molecules is increased, the rate of reaction increases. The best explanation is:",
+            "options": ["The average kinetic energy of molecules increases", "The frequency of molecular collisions increases", "The rate constant increases", "The activation energy increases"],
+            "answer": "The frequency of molecular collisions increases",
+            "explanation": "Increasing concentration raises the number of molecules present, leading to more collisions and a higher reaction rate."
+        },
+        {
+            "question": "Which of the following statements is true about equilibrium involving a chemical reaction?",
+            "options": ["The rate constants of the forward and reverse reactions are equal", "The rate of the forward and reverse reactions are equal", "The value of the equilibrium constant is 1", "All chemical reactions have ceased"],
+            "answer": "The rate of the forward and reverse reactions are equal",
+            "explanation": "At equilibrium, the rates of the forward and reverse reactions are equal, leading to constant concentrations of reactants and products."
+        },
+        {
+            "question": "If the reaction quotient Q has a larger value than the related equilibrium constant K, __________.",
+            "options": ["The reaction is at equilibrium", "The reaction is not at equilibrium and will make more products at the expense of reactants", "The reaction is not at equilibrium and will make more reactants at the expense of products", "The value of K will increase until it is equal to Q"],
+            "answer": "The reaction is not at equilibrium and will make more reactants at the expense of products",
+            "explanation": "When Q > K, the system shifts left to reach equilibrium, favoring the formation of reactants."
+        },
+        {
+            "question": "Which of the following changes will increase the total amount of Cl2 that can be produced?",
+            "options": ["Removing some of the I2(s)", "Adding more ICl(s)", "Removing the Cl2 as it is formed", "Decreasing the volume of the container"],
+            "answer": "Removing the Cl2 as it is formed",
+            "explanation": "Removing products from an equilibrium system drives the reaction forward, increasing the amount of the product formed."
+        },
+        {
+            "question": "For a specific reaction, which of the following statements can be made about K, the equilibrium constant?",
+            "options": ["It always remains the same at different reaction conditions", "It increases if the concentration of one of the products is increased", "It changes with changes in the temperature", "It increases if the concentration of one of the reactants is increased"],
+            "answer": "It changes with changes in the temperature",
+            "explanation": "The value of the equilibrium constant is temperature-dependent; changes in temperature can shift the equilibrium position."
+        },
+        {
+            "question": "If the following reaction is at equilibrium, which one of the following changes will shift the equilibrium to the left?",
+            "options": ["Increasing pressure", "Adding more N2 and H2", "Decreasing temperature", "Increasing the volume of the reaction container"],
+            "answer": "Increasing the volume of the reaction container",
+            "explanation": "Increasing the volume decreases the pressure, which shifts the equilibrium to the side with more moles of gas, favoring the reactants."
+        },
+        {
+            "question": "Which one of the following will change the value of an equilibrium constant?",
+            "options": ["Changing the temperature", "Adding more oxygen", "Adding other substances that do not react with any of the species involved in the equilibrium", "None"],
+            "answer": "Changing the temperature",
+            "explanation": "The equilibrium constant is dependent on temperature, so changes in temperature will alter its value."
+        },
+        {
+            "question": "Consider the gas-phase equilibrium system represented by the equation: 2H2O(g) <--> 2H2(g) + O2(g) is endothermic. Which of the following changes will decrease the equilibrium amount of H2O?",
+            "options": ["Adding a solid phase catalyst", "Decreasing the volume of the container (the total pressure increases)", "Increasing the temperature at constant pressure", "All of the above"],
+            "answer": "Decreasing the volume of the container (the total pressure increases)",
+            "explanation": "Decreasing the volume increases pressure and favors the side with fewer moles of gas, thus decreasing the amount of H2O."
+        },
+        {
+            "question": "Which of the following statements is true about equilibrium involving a chemical reaction?",
+            "options": ["The rate constants of the forward and reverse reactions are equal", "The rate of the forward and reverse reactions are equal", "The value of the equilibrium constant is 1", "All chemical reactions have ceased"],
+            "answer": "The rate of the forward and reverse reactions are equal",
+            "explanation": "At equilibrium, the rates of the forward and reverse reactions are equal, leading to constant concentrations of reactants and products."
+        },
+        {
+            "question": "If the reaction quotient Q has a larger value than the related equilibrium constant K, __________.",
+            "options": ["The reaction is at equilibrium", "The reaction is not at equilibrium and will make more products at the expense of reactants", "The reaction is not at equilibrium and will make more reactants at the expense of products", "The value of K will increase until it is equal to Q"],
+            "answer": "The reaction is not at equilibrium and will make more reactants at the expense of products",
+            "explanation": "When Q > K, the system shifts left to reach equilibrium, favoring the formation of reactants."
+        },
+        {
+            "question": "Which of the following changes will increase the total amount of Cl2 that can be produced?",
+            "options": ["Removing some of the I2(s)", "Adding more ICl(s)", "Removing the Cl2 as it is formed", "Decreasing the volume of the container"],
+            "answer": "Removing the Cl2 as it is formed",
+            "explanation": "Removing products from an equilibrium system drives the reaction forward, increasing the amount of the product formed."
+        },
+        {
+            "question": "For a specific reaction, which of the following statements can be made about K, the equilibrium constant?",
+            "options": ["It always remains the same at different reaction conditions", "It increases if the concentration of one of the products is increased", "It changes with changes in the temperature", "It increases if the concentration of one of the reactants is increased"],
+            "answer": "It changes with changes in the temperature",
+            "explanation": "The value of the equilibrium constant is temperature-dependent; changes in temperature can shift the equilibrium position."
+        },
+        {
+            "question": "If the following reaction is at equilibrium, which one of the following changes will shift the equilibrium to the left?",
+            "options": ["Increasing pressure", "Adding more N2 and H2", "Decreasing temperature", "Increasing the volume of the reaction container"],
+            "answer": "Increasing the volume of the reaction container",
+            "explanation": "Increasing the volume decreases the pressure, which shifts the equilibrium to the side with more moles of gas, favoring the reactants."
+        },
+        {
+            "question": "Which one of the following will change the value of an equilibrium constant?",
+            "options": ["Changing the temperature", "Adding more oxygen", "Adding other substances that do not react with any of the species involved in the equilibrium", "None"],
+            "answer": "Changing the temperature",
+            "explanation": "The equilibrium constant is dependent on temperature, so changes in temperature will alter its value."
+        }
+    ]
+,
+
         "Industrial Chemistry": [
             {
                 question: "Which of the following raw material found in atmosphere, used for Haber process?",
@@ -3633,4 +4089,5 @@ const questionsData = {
     }
 
   
+
   
